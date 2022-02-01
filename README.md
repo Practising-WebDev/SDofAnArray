@@ -1,2 +1,2 @@
 # SDofAnArray
-Created a webpage to calculate Standard Deviation of any number of digits using html, CSS, Javascript.
+Created a webpage to calculate Standard Deviation of any Number of digits using html, CSS, Javascript.
