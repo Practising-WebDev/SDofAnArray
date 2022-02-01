@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="SDofAnArray.css">
+</head>
+
+<body>
+    <h1 style="margin-left: 10px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+        Standard Deviation Calculator by Zaki</h1>
+
+    <!-- Input and answerbox flex -->
+    <form>
+        <div id="inputandboxspace">
+            <!-- Input -->
+            <div>
+                <div id="fordigitstyle">Enter Your 4 Digits :</div><br>
+                <input class="inputstyle" id="input1" type="number" placeholder="Enter your Number" /><br>
+                <input class="inputstyle" id="input2" type="number" placeholder="Enter your Number" /><br>
+                <input class="inputstyle" id="input3" type="number" placeholder="Enter your Number" /><br>
+                <input class="inputstyle" id="input4" type="number" placeholder="Enter your Number" /><br>
+                <input type="reset" value="Reset" id="clear1" onclick="clearAnswer()">
+            </div>
+            <!-- Answer -->
+
+            <div id="answerbox">
+                Get Your Answer Here....
+            </div>
+
+        </div>
+    </form>
+
+
+    <!-- Button -->
+    <div>
+        <input id="button1" type=submit onclick="runClick()" value="Calculate" />
+    </div>
+
+</body>
+<script>
+    function StandardDeviation(array) {
+        // SUM
+        let sum = 0;
+        for (let i = 0; i < array.length; i++) {
+            sum += array[i];
+        }
+        let avg = sum / array.length;
+
+        // Standard deviation (SD)
+        let NominatorSum = 0;
+        for (let k = 0; k < array.length; k++) {
+            NominatorSum = NominatorSum + (array[k] - avg) * (array[k] - avg);
+        }
+        let std = Math.sqrt(NominatorSum / (array.length - 1));
+        return std;
+    }
+
+    function renderbox(){
+        let length=0
+
+
+    }
+
+    function runClick() {
+        let arr = [];
+        arr[0] = parseInt(document.getElementById("input1").value);
+        arr[1] = parseInt(document.getElementById("input2").value);
+        arr[2] = parseInt(document.getElementById("input3").value);
+        arr[3] = parseInt(document.getElementById("input4").value);
+
+        if((input1.value.length==0) || (input2.value.length==0) || (input3.value.length==0) || (input4.value.length==0)){
+            document.getElementById("answerbox").innerHTML = 'Please fill all the fields';
+        }
+        else{
+        let Stdeviation = StandardDeviation(arr);
+        document.getElementById("answerbox").innerHTML = Stdeviation;
+        }
+
+    }
+
+    function clearAnswer() {
+        document.getElementById("answerbox").innerHTML = 'Get Your Answer Here....';
+    }
+</script>
+
+</html>

@@ -1,0 +1,104 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="SDofAnArray copy 2.css">
+</head>
+
+<body>
+    <h1 style="margin-left: 10px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+        Standard Deviation Calculator by Zaki</h1>
+
+    <!-- Input and answerbox flex -->
+    <div id="left">
+        <div id="inputandboxspace">
+            <!-- Input -->
+            <div>
+                <div id="fordigitstyle">Enter Number of Digits</div><br>
+                <input class="inputstyle" id="arraylength" type="number" placeholder="Enter Length Here" /><br>
+                <!-- Button -->
+                <input id="button2" type=submit onclick="renderbox()" value="Next" />
+            </div>
+            <!-- Answer -->
+            <div id="answerbox">
+                Get Your Answer Here....
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script>
+    function StandardDeviation(array) {
+        // SUM
+        let sum = 0;
+        for (let i = 0; i < array.length; i++) {
+            sum += array[i];
+        }
+        let avg = sum / array.length;
+
+        // Standard deviation (SD)
+        let NominatorSum = 0;
+        for (let k = 0; k < array.length; k++) {
+            NominatorSum = NominatorSum + (array[k] - avg) * (array[k] - avg);
+        }
+        let std = Math.sqrt(NominatorSum / (array.length - 1));
+        return std;
+    }
+
+    function renderbox() {
+        let length = 0;
+        length = parseInt(document.getElementById("arraylength").value);
+        innerhtml = ``;
+        for (let t = 0; t < length; t++) {
+            innerhtml = innerhtml + `<input class="inputstyle" id="` + (t + 1) + `" type="number" placeholder="Enter your Number"></input><br/>`
+        }
+        if (arraylength.value.length == 0) {
+            document.getElementById("answerbox").innerHTML = 'Please fill all the fields';
+        }
+        else {
+            document.getElementById("left").innerHTML =
+                `<form>
+      <div id="inputandboxspace">
+        <div>
+            <div id="fordigitstyle">Enter Your Numbers</div><br>
+            ` + innerhtml + `
+            <input type="reset" value="Reset" id="clear1" onclick="clearAnswer()">
+        </div>
+
+        <!-- Answer --> 
+        <div id="answerbox">
+            Get Your Answer Here....
+        </div>
+      </div>
+</form>`+
+                `<div>
+        <input id="button1" type=submit onclick="runClick()" value="Calculate" />
+        <input id="refreshbutton" type=submit onclick="refreshpage()" value="Change Number of digits" />
+</div>`;
+        }
+    }
+
+
+    function runClick() {
+        let arr = [0,0,0,0];
+
+        
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = parseInt(document.getElementById(i+1).value);
+        }
+            let Stdeviation = StandardDeviation(arr);
+        document.getElementById("answerbox").innerHTML = Stdeviation;
+        
+    
+}
+
+    function clearAnswer() {
+        document.getElementById("answerbox").innerHTML = 'Get Your Answer Here....';
+    }
+
+    function refreshpage() {
+        location.reload();
+    }
+</script>
+
+</html>
