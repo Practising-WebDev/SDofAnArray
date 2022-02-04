@@ -86,8 +86,15 @@
         for (let i = 0; i < arr.length; i++) {
             arr[i] = parseInt(document.getElementById(i+1).value);
         }
+
+        
             let Stdeviation = StandardDeviation(arr);
-        document.getElementById("answerbox").innerHTML = Stdeviation;
+            if(isNaN(Stdeviation)){
+                document.getElementById("answerbox").innerHTML = 'Please fill all the fields';
+            }else{
+                document.getElementById("answerbox").innerHTML = Stdeviation;
+            }
+       
         
     
 }
