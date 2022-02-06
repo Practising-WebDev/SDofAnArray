@@ -14,7 +14,7 @@
             <!-- Input -->
             <div>
                 <div id="fordigitstyle">Enter Number of Digits</div><br>
-                <input class="inputstyle" id="arraylength" type="number" placeholder="Enter Length Here" /><br>
+                <input class="inputstyle" id="arraylength" type="number" placeholder="Enter Length Here" autofocus /><br>
                 <!-- Button -->
                 <input id="button2" type=submit onclick="renderbox()" value="Next" />
             </div>
@@ -50,7 +50,7 @@
         length = parseInt(document.getElementById("arraylength").value);
         innerhtml = ``;
         for (let t = 0; t < length; t++) {
-            innerhtml = innerhtml + `<input class="inputstyle" id="` + (t + 1) + `" type="number" placeholder="Enter your Number"></input><br/>`
+            innerhtml = innerhtml + `<input class="inputstyle" id="` + (t + 1) + `" type="number" placeholder="Enter your Number" ></input><br/>`
         }
         if (arraylength.value.length == 0) {
             document.getElementById("answerbox").innerHTML = 'Please fill all the fields';
